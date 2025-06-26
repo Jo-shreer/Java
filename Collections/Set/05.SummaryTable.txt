@@ -1,4 +1,4 @@
-| Set Type                 | ThreadSafe | Ordering           | Duplicates | Time Complexity       | Use Case                                |
+| Set Type                 | ThreadSafe     | Ordering           | Duplicates | Time Complexity       | Use Case                                |
 |--------------------------|----------------|--------------------|------------|------------------------|------------------------------------------|
 | `HashSet`                | No             | No (unordered)     | No         | O(1) average           | Fast set with no ordering                |
 | `LinkedHashSet`          | No             | Yes (insertion)    | No         | O(1) average           | Maintain order without duplicates        |
