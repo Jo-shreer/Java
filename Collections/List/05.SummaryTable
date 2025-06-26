@@ -1,0 +1,8 @@
+
+
+| List Type               | ThreadSafe.    | Ordering     | Duplicates | Time Complexity (Access/Add) | Use Case                                 |
+|-------------------------|----------------|--------------|------------|------------------------------|-------------------------------------------|
+| `ArrayList`             | No             | Maintains    | Yes        | O(1) / O(1) avg              | Fast access, resizable array              |
+| `LinkedList`            | No             | Maintains    | Yes        | O(n) / O(1) front/back       | Frequent insert/delete                    |
+| `Vector`                | Yes            | Maintains    | Yes        | O(1) / O(1) avg              | Thread-safe alternative to ArrayList      |
+| `CopyOnWriteArrayList`  | Yes            | Maintains    | Yes        | O(n) write / O(1) read       | Thread-safe, frequent reads, rare writes |
