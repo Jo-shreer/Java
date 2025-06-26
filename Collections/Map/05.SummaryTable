@@ -1,10 +1,10 @@
 
 
 
-| Map Type               | ThreadSafe | Ordering           | Null Keys/Values            | Time Complexity       | Use Case                                 |
-|------------------------|----------------|--------------------|------------------------------|------------------------|-------------------------------------------|
+| Map Type               | ThreadSafe | Ordering           | Null Keys/Values                     | Time Complexity       | Use Case                                 |
+|------------------------|----------------|--------------------|------------------------------    |------------------------|-------------------------------------------|
 | `HashMap`              | No             | No (unordered)     | 1 null key, multiple null values | O(1) avg         | General-purpose key-value store          |
-| `LinkedHashMap`        | No             | Yes (insertion)    | Same as HashMap              | O(1) avg               | Predictable iteration order              |
+| `LinkedHashMap`        | No             | Yes (insertion)    | Same as HashMap                  | O(1) avg               | Predictable iteration order              |
 | `TreeMap`              | No             | Yes (sorted)       | No null key, null values allowed | O(log n)       | Sorted map by key                        |
-| `Hashtable`            | Yes            | No (unordered)     | No null key or values        | O(1) avg               | Legacy thread-safe map                   |
-| `ConcurrentHashMap`    | Yes            | No (unordered)     | No null key or values        | O(1) avg               | High-performance thread-safe map         |
+| `Hashtable`            | Yes            | No (unordered)     | No null key or values            | O(1) avg               | Legacy thread-safe map                   |
+| `ConcurrentHashMap`    | Yes            | No (unordered)     | No null key or values            | O(1) avg               | High-performance thread-safe map         |
