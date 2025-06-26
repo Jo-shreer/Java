@@ -1,0 +1,10 @@
+
+
+
+| Queue Type                | Thread      | Ordering             | Duplicates | Time             | Use Case                                |
+|.                          | Safety      |.                     |.           | Complexity.      |
+|---------------------------|-------------|----------------------|------------|------------------|------------------------------------------|
+| `LinkedList`              | No          | FIFO                 | Yes        | O(1)             | General-purpose queue and deque          |
+| `PriorityQueue`           | No          | Sorted by priority   | Yes        | O(log n)         | Scheduling tasks by priority             |
+| `ArrayDeque`              | No          | Insertion + both ends| Yes        | O(1)             | Stack and queue hybrid (Deque)           |
+| `ConcurrentLinkedQueue`  | Yes         | FIFO                 | Yes        | O(1) average     | Thread-safe, non-blocking queue          |
