@@ -21,4 +21,26 @@ op
 Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 
 Index 5 out of bounds for length 3
 at UncheckedExceptionDemo.main(UncheckedExceptionDemo.java:4)
-  
+
+/*********************************************/
+
+public class UncheckedExceptionDemo
+{
+    public static void main(String[] args) 
+   {
+        try 
+       {
+            int[] arr = new int[3];
+            System.out.println(arr[5]);  // This will cause ArrayIndexOutOfBoundsException
+        } 
+        catch (ArrayIndexOutOfBoundsException e) 
+       {
+            System.out.println("Oops! Array index is out of bounds.");
+        }
+    }
+}
+
+op
+Oops! Array index is out of bounds.
+   
+
