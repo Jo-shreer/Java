@@ -1,3 +1,6 @@
+
+
+
 | Map Type               | ThreadSafe | Ordering           | Null Keys/Values            | Time Complexity       | Use Case                                 |
 |------------------------|----------------|--------------------|------------------------------|------------------------|-------------------------------------------|
 | `HashMap`              | No             | No (unordered)     | 1 null key, multiple null values | O(1) avg         | General-purpose key-value store          |
