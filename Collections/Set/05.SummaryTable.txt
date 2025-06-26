@@ -1,3 +1,5 @@
+
+
 | Set Type                 | ThreadSafe     | Ordering           | Duplicates | Time Complexity       | Use Case                                |
 |--------------------------|----------------|--------------------|------------|------------------------|------------------------------------------|
 | `HashSet`                | No             | No (unordered)     | No         | O(1) average           | Fast set with no ordering                |
