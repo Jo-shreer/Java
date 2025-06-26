@@ -1,0 +1,6 @@
+| Set Type                 | ThreadSafe | Ordering           | Duplicates | Time Complexity       | Use Case                                |
+|--------------------------|----------------|--------------------|------------|------------------------|------------------------------------------|
+| `HashSet`                | No             | No (unordered)     | No         | O(1) average           | Fast set with no ordering                |
+| `LinkedHashSet`          | No             | Yes (insertion)    | No         | O(1) average           | Maintain order without duplicates        |
+| `TreeSet`                | No             | Yes (sorted)       | No         | O(log n)               | Sorted unique elements                   |
+| `CopyOnWriteArraySet`    | Yes            | Yes (insertion)    | No         | O(n) writes / O(1) reads| Thread-safe read-mostly environments     |
