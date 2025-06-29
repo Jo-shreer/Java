@@ -28,7 +28,6 @@ public class twosum
         {
             System.out.println("result:" + res);
         }
-
     }
 }
 
