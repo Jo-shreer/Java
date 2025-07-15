@@ -30,3 +30,33 @@ public class ComparatorSimpleExample
 op
 apple is shorter than banana
   
+or
+
+import java.util.Comparator;
+
+public class ComparatorSimpleExample 
+{
+    public static void main(String[] args) 
+    {
+        // Comparator to compare strings by length using comparingInt
+        Comparator<String> compareByLength = Comparator.comparingInt(String::length);
+
+        String str1 = "apple";
+        String str2 = "banana";
+
+        int result = compareByLength.compare(str1, str2);
+
+        if (result < 0) 
+        {
+            System.out.println(str1 + " is shorter than " + str2);
+        } 
+        else if (result > 0) 
+        {
+            System.out.println(str1 + " is longer than " + str2);
+        } 
+        else 
+        {
+            System.out.println(str1 + " and " + str2 + " have the same length");
+        }
+    }
+}
