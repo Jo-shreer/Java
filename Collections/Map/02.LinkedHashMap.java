@@ -1,37 +1,86 @@
 /*
-Thread-Safe: ❌ No
-Ordering: ✅ Maintains insertion order
-Duplicate Keys: ❌ No
-Time Complexity: O(1) average for get/put/remove
-Benefits: Keeps insertion order, useful for predictable iteration
-Usage: Use when iteration order matters
+✅ LinkedHashMap in Java (Single-click Copy Format)
 
+🔹 What is LinkedHashMap?
+- It is a subclass of HashMap.
+- Maintains the **insertion order** of keys.
+- Stores key-value pairs like HashMap.
+- Not thread-safe.
+- Allows one null key and multiple null values.
 
-Methods
-V put(K key, V value)
-V get(Object key)
-V remove(Object key)
-boolean containsKey(Object key)
-boolean containsValue(Object value)
-Set<K> keySet()
-Collection<V> values()
-Set<Map.Entry<K,V>> entrySet()
-void clear()
-int size()
-boolean isEmpty()
+🔹 Package & Declaration:
+import java.util.LinkedHashMap;
 
+LinkedHashMap<KeyType, ValueType> map = new LinkedHashMap<>();
+
+🔹 Key Features:
+- Maintains **insertion order** (order in which keys were added).
+- Faster iteration compared to HashMap due to predictable ordering.
+- Accepts one null key.
+- Not synchronized (use external sync if needed).
+
+🔹 Common Methods:
+- put(K key, V value)
+- get(Object key)
+- remove(Object key)
+- containsKey(Object key)
+- containsValue(Object value)
+- size()
+- keySet()
+- entrySet()
+
+🔹 When to Use:
+- When you need a map with predictable iteration order.
+- When ordering matters (like caching, LRU).
+- For maintaining form input fields, history, etc.
+
+🔹 Example:
 */
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-public class LinkedHashMapDemo 
+public class LinkedHashMapExample 
 {
     public static void main(String[] args) 
     {
         LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
-        map.put("Apple", 1);
-        map.put("Banana", 2);
-        map.put("Apple", 3);
-        System.out.println(map);
+        map.put("One", 1);
+        map.put("Two", 2);
+        map.put("Three", 3);
+        map.put("One", 10); // Duplicate key, value will be updated
+
+        // Iterating in insertion order
+        System.out.println("LinkedHashMap Entries:");
+        for (Map.Entry<String, Integer> entry : map.entrySet()) 
+        {
+            System.out.println(entry.getKey() + " → " + entry.getValue());
+        }
+
+        // Checking for a key
+        System.out.println("Contains 'Two'? " + map.containsKey("Two")); // true
+
+        // Removing an entry
+        map.remove("Three");
+
+        // Final Map
+        System.out.println("Final Map: " + map);
     }
 }
+
+/*
+🔹 Output:
+LinkedHashMap Entries:
+One → 10
+Two → 2
+Three → 3
+Contains 'Two'? true
+Final Map: {One=10, Two=2}
+*/
+
+/*
+🔹 Notes:
+- LinkedHashMap maintains predictable ordering.
+- Use for caching with predictable iteration.
+- Use LinkedHashMap with access-order = true for LRU cache (advanced).
+*/
