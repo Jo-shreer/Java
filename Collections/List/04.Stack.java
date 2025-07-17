@@ -5,6 +5,19 @@ Duplicates: ✅ Allowed
 Access Time: O(1)
 Insert/Delete: O(1) for push() / pop()
 Best For: Undo/Redo, backtracking, LIFO logic
+Stack is synchronized, but it's considered legacy.
+
+Stack is synchronized, but it's considered legacy.
+For non-thread-safe and modern use, prefer Deque (like ArrayDeque)
+with push(), pop(), and peek().
+
+Use Case	Description
+🔁 Undo/Redo operations	Track history of actions (editors, IDEs)
+💻 Parsing expressions	Evaluate arithmetic, postfix, infix expressions
+🔄 Backtracking algorithms	E.g., maze solving, recursion simulation
+🌐 Web browsers	Forward and back button history
+🧠 Function call stack simulation	Manage call frames in recursive algorithms
+📦 Bracket matching	Check balanced parentheses, braces, etc.
 */
 
 import java.util.Stack;
