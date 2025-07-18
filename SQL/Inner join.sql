@@ -2,7 +2,8 @@
 ✅ INNER JOIN in SQL — Explanation with Example Tables (Single-Click Copy)
 
 🔹 What is INNER JOIN?
-- Combines rows from two or more tables **only when they have matching values**
+- Combines rows from two or more tables **only when they have 
+  matching values**
   in a common column.
 - It returns only the rows with a match in both tables.
 
