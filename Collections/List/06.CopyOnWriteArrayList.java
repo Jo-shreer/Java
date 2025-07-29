@@ -10,7 +10,8 @@
 
 🔹 When to Use
 - Read-heavy, write-light applications.
-- Scenarios where you need safe iteration without locking or synchronization.
+- Scenarios where you need safe iteration without 
+locking or synchronization.
 
 🔹 Key Features
 - Thread-safe without needing external synchronization.
