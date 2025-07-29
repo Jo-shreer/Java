@@ -7,13 +7,17 @@
 
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ConcurrentHashMapConcurrentOps {
-    public static void main(String[] args) throws InterruptedException {
+public class ConcurrentHashMapConcurrentOps 
+{
+    public static void main(String[] args) throws InterruptedException 
+    {
         ConcurrentHashMap<Integer, String> map = new ConcurrentHashMap<>();
 
         // Thread 1 → adding entries
-        Thread writer1 = new Thread(() -> {
-            for (int i = 1; i <= 5; i++) {
+        Thread writer1 = new Thread(() -> 
+        {
+            for (int i = 1; i <= 5; i++) 
+            {
                 map.put(i, "Value-" + i);
                 System.out.println("Writer1 added: " + i);
                 try { Thread.sleep(100); } catch (InterruptedException e) {}
@@ -21,8 +25,10 @@ public class ConcurrentHashMapConcurrentOps {
         });
 
         // Thread 2 → updating entries
-        Thread writer2 = new Thread(() -> {
-            for (int i = 1; i <= 5; i++) {
+        Thread writer2 = new Thread(() -> 
+        {
+            for (int i = 1; i <= 5; i++) 
+            {
                 map.put(i, "Updated-" + i);
                 System.out.println("Writer2 updated: " + i);
                 try { Thread.sleep(150); } catch (InterruptedException e) {}
@@ -30,8 +36,10 @@ public class ConcurrentHashMapConcurrentOps {
         });
 
         // Thread 3 → reading entries
-        Thread reader = new Thread(() -> {
-            for (int i = 1; i <= 5; i++) {
+        Thread reader = new Thread(() -> 
+        {
+            for (int i = 1; i <= 5; i++) 
+            {
                 String value = map.get(i);
                 System.out.println("Reader read: key=" + i + ", value=" + value);
                 try { Thread.sleep(120); } catch (InterruptedException e) {}
