@@ -20,7 +20,10 @@ public class ConcurrentHashMapConcurrentOps
             {
                 map.put(i, "Value-" + i);
                 System.out.println("Writer1 added: " + i);
-                try { Thread.sleep(100); } catch (InterruptedException e) {}
+                try 
+                { 
+                    Thread.sleep(100); 
+                } catch (InterruptedException e) {}
             }
         });
 
@@ -31,7 +34,10 @@ public class ConcurrentHashMapConcurrentOps
             {
                 map.put(i, "Updated-" + i);
                 System.out.println("Writer2 updated: " + i);
-                try { Thread.sleep(150); } catch (InterruptedException e) {}
+                try 
+                { 
+                    Thread.sleep(150); 
+                } catch (InterruptedException e) {}
             }
         });
 
@@ -42,7 +48,10 @@ public class ConcurrentHashMapConcurrentOps
             {
                 String value = map.get(i);
                 System.out.println("Reader read: key=" + i + ", value=" + value);
-                try { Thread.sleep(120); } catch (InterruptedException e) {}
+                try 
+                { 
+                    Thread.sleep(120); 
+                } catch (InterruptedException e) {}
             }
         });
 
