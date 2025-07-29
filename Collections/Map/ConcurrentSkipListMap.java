@@ -1,42 +1,10 @@
 /*
-✅ ConcurrentSkipListMap in Java (Single-click Copy Format)
+✅ ConcurrentSkipListMap Example in Java
 
-🔹 What is ConcurrentSkipListMap?
-- A thread-safe, **sorted** map implementation.
-- Part of `java.util.concurrent` package.
-- Implements `ConcurrentNavigableMap`.
-- Uses **skip list** data structure for efficient concurrent access.
-- Keys are stored in **sorted order** (natural or via Comparator).
-- Supports approximate match operations like `ceilingKey()`, `floorKey()`.
-- Does **NOT allow null keys or null values**.
-
-🔹 Package & Declaration:
-import java.util.concurrent.ConcurrentSkipListMap;
-
-ConcurrentSkipListMap<KeyType, ValueType> map = new ConcurrentSkipListMap<>();
-
-🔹 Key Features:
-- Thread-safe with efficient concurrent reads and writes.
-- Sorted key order.
-- Lock-free reads, fine-grained locking for updates.
-- Supports navigable map operations (headMap, tailMap, subMap).
-- No null keys or values allowed.
-
-🔹 When to Use:
-- When you need a **thread-safe**, **sorted map**.
-- When concurrent sorted operations are required.
-- Alternative to synchronized TreeMap in concurrent environment.
-
-🔹 Common Methods:
-- put(K key, V value)
-- get(Object key)
-- remove(Object key)
-- firstKey(), lastKey()
-- ceilingKey(K key), floorKey(K key)
-- headMap(K toKey), tailMap(K fromKey), subMap(K fromKey, K toKey)
-- size()
-
-🔹 Example:
+- ConcurrentSkipListMap is a thread-safe, **sorted map**.
+- It implements NavigableMap (like TreeMap) but is concurrent.
+- Keys are always kept in **sorted order**.
+- Safe for concurrent read/write without explicit synchronization.
 */
 
 import java.util.concurrent.ConcurrentSkipListMap;
@@ -45,38 +13,82 @@ public class ConcurrentSkipListMapExample
 {
     public static void main(String[] args) 
     {
-        ConcurrentSkipListMap<String, Integer> map = new ConcurrentSkipListMap<>();
-        // Adding entries
-        map.put("Banana", 20);
-        map.put("Apple", 10);
-        map.put("Cherry", 30);
+        // Create a ConcurrentSkipListMap
+        ConcurrentSkipListMap<Integer, String> map = new ConcurrentSkipListMap<>();
 
-        // Iteration (sorted order)
-        System.out.println("ConcurrentSkipListMap (Sorted):");
-        map.forEach((k, v) -> System.out.println(k + " → " + v));
+        // Add elements
+        map.put(3, "Banana");
+        map.put(1, "Apple");
+        map.put(4, "Mango");
+        map.put(2, "Cherry");
 
-        // Navigation examples
-        System.out.println("\nFirst Key: " + map.firstKey());   // Apple
-        System.out.println("Last Key: " + map.lastKey());       // Cherry
-        System.out.println("Ceiling Key of 'Ban': " + map.ceilingKey("Ban")); // Banana
-        System.out.println("Floor Key of 'Banana': " + map.floorKey("Banana")); // Banana
+        // Iteration is always in sorted order of keys
+        System.out.println("Sorted Map:");
+        map.forEach((k, v) -> System.out.println(k + " => " + v));
+
+        // Concurrent operations
+        Thread writer = new Thread(() -> 
+        {
+            for (int i = 5; i <= 7; i++) 
+            {
+                map.put(i, "Fruit-" + i);
+                System.out.println("Writer added: " + i);
+                try 
+                { 
+                    Thread.sleep(100); 
+                 } catch (InterruptedException e) {}
+            }
+        });
+
+        Thread reader = new Thread(() -> 
+        {
+            for (int i = 1; i <= 7; i++) 
+            {
+                System.out.println("Reader read: " + i + " => " + map.get(i));
+                try 
+                { 
+                    Thread.sleep(80); 
+                } 
+                catch (InterruptedException e) {}
+            }
+        });
+
+        writer.start();
+        reader.start();
+
+        try 
+        {
+            writer.join();
+            reader.join();
+        } 
+        catch (InterruptedException e) 
+        {
+            e.printStackTrace();
+        }
+
+        System.out.println("\nFinal Map (Sorted):");
+        map.forEach((k, v) -> System.out.println(k + " => " + v));
     }
 }
 
 /*
-🔹 Output:
-ConcurrentSkipListMap (Sorted):
-Apple → 10
-Banana → 20
-Cherry → 30
-
-First Key: Apple
-Last Key: Cherry
-Ceiling Key of 'Ban': Banana
-Floor Key of 'Banana': Banana
-
-🔹 Notes:
-- Thread-safe sorted map, excellent for concurrent access with ordering.
-- Null keys/values not allowed.
-- Use for concurrent applications needing sorted maps with navigable features.
+🖨️ SAMPLE OUTPUT (order may vary):
+Sorted Map:
+1 => Apple
+2 => Cherry
+3 => Banana
+4 => Mango
+Reader read: 1 => Apple
+Reader read: 2 => Cherry
+Writer added: 5
+Reader read: 5 => Fruit-5
+...
+Final Map (Sorted):
+1 => Apple
+2 => Cherry
+3 => Banana
+4 => Mango
+5 => Fruit-5
+6 => Fruit-6
+7 => Fruit-7
 */
