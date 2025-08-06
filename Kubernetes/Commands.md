@@ -12,7 +12,9 @@ kubectl expose pod mypod --type=NodePort --port=80
 # 4. Check the service details and find the NodePort assigned
 kubectl get svc mypod
 
-# (Optional) Access your pod’s nginx server at http://<Node-IP>:<NodePort>
+# (Optional) Access your pod’s nginx server at 
+
+http://<Node-IP>:<NodePort>
 
 # 5. When done, delete the pod
 kubectl delete pod mypod
