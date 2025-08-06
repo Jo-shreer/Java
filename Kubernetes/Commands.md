@@ -1,7 +1,7 @@
 
 
-# 1. Create and run a simple pod named "mypod" using nginx
-kubectl run mypod --image=nginx --port=80 --restart=Never
+ 1. Create and run a simple pod named "mypod" using nginx
+#kubectl run mypod --image=nginx --port=80 --restart=Never
 
 # 2. Check that the pod is running
 kubectl get pods
