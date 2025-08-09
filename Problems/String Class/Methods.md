@@ -92,6 +92,26 @@ Converts other types to string.
 String numStr = String.valueOf(123);  // "123"
 the valueOf method is converting the integer 123 into its string representation "123".
 
+# 20. compareTo(String anotherString)
+Lexicographically compares two strings.
+int result = "apple".compareTo("banana");  // negative (because "apple" < "banana")
+
+# 21. compareToIgnoreCase(String str)
+Case-insensitive comparison.
+int result = "Apple".compareToIgnoreCase("apple");  // 0
+
+# 22. repeat(int count) (Java 11+)
+Repeats the string count times.
+String repeated = "abc".repeat(3);  // "abcabcabc"
+
+# 23. isBlank() (Java 11+)
+Checks if string is empty or only whitespace.
+boolean blank = "  \t\n".isBlank();  // true
+isBlank() returns true if the string is empty or contains only whitespace characters, 
+including spaces, tabs, newlines, etc.
+
+
+
 
 
 
