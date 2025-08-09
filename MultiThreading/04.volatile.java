@@ -34,7 +34,8 @@ class VolatileExample
         try 
         {
             Thread.sleep(1000);  // simulate work
-        } catch (InterruptedException e) 
+        } 
+        catch (InterruptedException e) 
         {
             e.printStackTrace();
         }
@@ -45,7 +46,7 @@ class VolatileExample
     public void readerThread() 
     {
         System.out.println("Reader thread started");
-        while (!flag) 
+        while (!flag) or while (flag == false) 
         {
             // busy-wait until flag becomes true
         }
