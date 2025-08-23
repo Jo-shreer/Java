@@ -23,7 +23,6 @@ public class Main
                 index++;
             }
         }
-        
         while(index < size)
         {
             arr[index] = 0;
