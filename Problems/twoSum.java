@@ -1,3 +1,20 @@
+/*
+1. Brute Force (O(n²)):
+Loop through all pairs (i, j).
+Check if nums[i] + nums[j] == target.
+If yes → return [i, j].
+Very simple, but slow for large arrays.
+
+2. Efficient Approach with HashMap (O(n)):
+Use a HashMap to store numbers and their indices.
+For each element:
+Compute the complement → target - nums[i].
+Check if this complement already exists in the map.
+If yes → we found the pair, return [map.get(complement), i].
+If not → store the current number and its index in the map.
+This way, we only loop through once.
+*/
+
 package Problems;
 
 import java.util.HashMap;
